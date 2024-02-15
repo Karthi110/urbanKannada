@@ -28,6 +28,7 @@ const Chat = () => {
           Translation in Kannada:{word} {word lexicon}
           👍{Upvotes of word in percentage} 👎{Downvotes of word in percentage}
         ]
+        Country:India
         `,
           role: "system",
         },
