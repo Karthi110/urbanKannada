@@ -5,7 +5,7 @@ export const runtime = "edge";
 export default function Home() {
   return (
     <main className=" container mx-auto">
-      <div className=" flex flex-col items-center min-h-fit gap-6 w-full mx-auto my-10">
+      <div className=" flex flex-col items-center min-h-fit gap-4 w-full mx-auto mt-10 mb-4">
         <h1 className="font-semibold text-slate-700 text-4xl md:text-6xl lg:text-7xl text-center ">
           The Regional <span className="text-gradient">Urban Dictionary</span>{" "}
         </h1>

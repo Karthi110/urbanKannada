@@ -12,6 +12,8 @@ import {
 import { useState } from "react";
 import { z } from "zod";
 import { ScrollArea } from "./ui/scroll-area";
+import Feedback from "./Feedback";
+import { Button } from "./ui/button";
 
 const Chat = () => {
   const votes = z.enum(["up", "down", "null"]);
@@ -47,7 +49,7 @@ const Chat = () => {
             Type:
             Translation in Kannada:{word} {word lexicon}
             👍{Upvotes of word in percentage} 👎{Downvotes of word in percentage}
-            Ask whether the user is satisfied with the response?
+            Ask wheather the user is satisfied with the response?
         `,
         role: "system",
         ui: [<Loader2 className="w-4 h-4" />, <User />],
@@ -69,7 +71,7 @@ const Chat = () => {
           onChange={handleInputChange}
           className=" w-full border rounded-xl border-slate-100/80 py-2 px-4 shadow-md"
         />
-        <button
+        <Button
           className=" bg-emerald-600 text-slate-100 shadow-md font-semibold px-4 py-2 rounded-xl hover:bg-emerald-500"
           type="submit"
           title={!isLoading ? "Ask AI" : "Stop"}
@@ -78,67 +80,69 @@ const Chat = () => {
             "Ask✨"
           ) : (
             <StopCircleIcon
-              className=" w-4 h-4 animate-spin"
+              className=" w-6 h-6 animate-spin"
               onClick={() => stop()}
             />
           )}
-        </button>
+        </Button>
       </form>
-      <ScrollArea className="max-w-xl aspect-video bg-transparent rounded-xl mb-4">
+      <ScrollArea className="max-w-xl h-72 rounded-xl mb-2 py-1">
         <div className="divide-y flex flex-col-reverse bg-green-50 text-slate-500 px-4 rounded-xl">
           {messages
             .filter((m) => m.role !== "system")
             .map((m, index) => (
-              <p key={index} className=" py-4 text-gray-700 text-lg">
+              <p key={index} className="py-4 text-gray-700 text-base">
                 {m.role === "user" ? "User: " : "Ai: "}
                 <span className=" whitespace-pre-line">{m.content}</span>
                 <br />
                 {complete ? (
                   m.role === "assistant" ? (
-                    <span className=" flex gap-4 cursor-pointer">
-                      <button
-                        className=" bg-green-100  aspect-square p-1 rounded-md"
+                    <span className=" flex gap-2 cursor-pointer">
+                      <Button
+                        className=" bg-green-100 aspect-square p-[0.5px] rounded-md hover:bg-green-200 text-slate-800"
                         title="Good response"
+                        size="sm"
+                        onClick={() => {
+                          if (vote === "up") {
+                            setVote(votes.Values.null);
+                            return;
+                          }
+                          setVote(votes.Values.up);
+                        }}
                       >
                         <ThumbsUp
-                          onClick={() => {
-                            if (vote === "up") {
-                              setVote(votes.Values.null);
-                              return;
-                            }
-                            setVote(votes.Values.up);
-                          }}
-                          className={`w-5 h-5 ${
-                            vote === "up" ? "fill-slate-400" : ""
+                          className={`w-4 h-4 ${
+                            vote === "up" ? "fill-green-500" : ""
                           }`}
                         />
-                      </button>
-                      <button
-                        className=" bg-orange-100  aspect-square p-1 rounded-md"
+                      </Button>
+                      <Button
+                        className=" bg-orange-100/90 hover:bg-orange-200 aspect-square p-[0.5px] rounded-md text-slate-800"
                         title="Bad response"
+                        size="sm"
+                        onClick={() => {
+                          if (vote === "down") {
+                            setVote(votes.Values.null);
+                            return;
+                          }
+                          setVote(votes.Values.down);
+                        }}
                       >
                         <ThumbsDown
-                          onClick={() => {
-                            if (vote === "down") {
-                              setVote(votes.Values.null);
-                              return;
-                            }
-                            setVote(votes.Values.down);
-                          }}
-                          className={`w-5 h-5 ${
-                            vote === "down" ? "fill-slate-400" : ""
+                          className={`w-4 h-4 ${
+                            vote === "down" ? "fill-red-500" : ""
                           }`}
                         />
-                      </button>
-                      <button
-                        className=" bg-teal-100  aspect-square p-1 rounded-md"
+                      </Button>
+                      <Button
+                        size="sm"
+                        className=" bg-teal-100 hover:bg-teal-200  aspect-square p-[0.5px] rounded-md text-slate-800"
                         title="Reload"
+                        onClick={() => reload()}
                       >
-                        <RefreshCw
-                          className={`w-5 h-5 active:animate-spin`}
-                          onClick={() => reload()}
-                        />
-                      </button>
+                        <RefreshCw className={`w-4 h-4 active:animate-spin`} />
+                      </Button>
+                      <Feedback />
                     </span>
                   ) : null
                 ) : null}
