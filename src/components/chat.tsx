@@ -14,6 +14,7 @@ import { z } from "zod";
 import { ScrollArea } from "./ui/scroll-area";
 import Feedback from "./Feedback";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 const Chat = () => {
   const votes = z.enum(["up", "down", "null"]);
@@ -34,25 +35,23 @@ const Chat = () => {
         id: "",
         content: `
           You are a Urban dictionary.
+          You can provide meaning of  profanity words also.
           You must provide olny the slang meaning of the word and not other meaning.
-          You provide meanings that have high upvotes in urban dictionary.
-          You must censor vulgar and Illegal words as our audience can be of age less than 18.
-          You provide output in the below format.
-          Word count:30-40 words
+          You provide meanings that have high upvotes in urban dictionary website.
+          You must censor vulgar words as our audience can be of age less than 18.
+          Word count:50 words
           Format:
             **{WORD}**
-            Country and Language:
+            Country and Language:{country}|{language}
             Meaning:
             Description:
             Example: 
             Acronym: 
-            Type:
-            Translation in Kannada:{word} {word lexicon}
+            Category:
             👍{Upvotes of word in percentage} 👎{Downvotes of word in percentage}
-            Ask wheather the user is satisfied with the response?
+            Ask user satisfaction with the response?
         `,
         role: "system",
-        ui: [<Loader2 className="w-4 h-4" />, <User />],
       },
     ],
     onFinish: () => setComplete(true),
@@ -60,6 +59,7 @@ const Chat = () => {
       setComplete(false);
       setVote(votes.Values.null);
     },
+    onError: () => toast.error("Something went wrong try again."),
   });
 
   return (
