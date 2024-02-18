@@ -76,16 +76,17 @@
 }
 
 .bgimg {
-  background-color: whitesmoke;
+  background-color: rgb(255, 255, 255);
   background-image: radial-gradient(
-      at 81% 35%,
-      rgb(167, 243, 208) 0,
-      transparent 27%
+      at 19% 14%,
+      rgb(209, 250, 229) 0,
+      transparent 50%
     ),
-    radial-gradient(at 14% 22%, rgb(167, 243, 208) 0, transparent 12%),
-    radial-gradient(at 74% 87%, rgb(167, 243, 208) 0, transparent 31%),
-    radial-gradient(at 23% 66%, rgb(167, 243, 208) 0, transparent 31%);
+    radial-gradient(at 91% 21%, rgb(153, 246, 228) 0, transparent 91%),
+    radial-gradient(at 71% 74%, rgb(220, 252, 231) 0, transparent 68%),
+    radial-gradient(at 24% 76%, rgb(167, 243, 208) 0, transparent 45%);
 }
+
 .animate-gradient {
   background-size: 300%;
   -webkit-animation: animatedgradient 6s ease infinite alternate;
@@ -112,5 +113,5 @@
 }
 
 .text-gradient {
-  @apply transition-colors delay-75 bg-gradient-to-r to-orange-700 via-indigo-500 from-green-400 text-transparent bg-clip-text animate-gradient;
+  @apply transition-colors delay-75 bg-gradient-to-r  from-green-500 via-rose-400 to-indigo-500 text-transparent bg-clip-text animate-gradient;
 }
