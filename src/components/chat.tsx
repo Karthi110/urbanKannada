@@ -1,14 +1,7 @@
 "use client";
 
 import { useChat } from "ai/react";
-import {
-  Loader2,
-  RefreshCw,
-  StopCircleIcon,
-  ThumbsDown,
-  ThumbsUp,
-  User,
-} from "lucide-react";
+import { RefreshCw, StopCircleIcon, ThumbsDown, ThumbsUp } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
 import { ScrollArea } from "./ui/scroll-area";
