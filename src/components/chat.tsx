@@ -32,6 +32,7 @@ const Chat = () => {
           You must provide olny the slang meaning of the word and not other meaning.
           You provide meanings that have high upvotes in urban dictionary website.
           You must censor vulgar words as our audience can be of age less than 18.
+          You must never apologize.
           Word count:50 words
           Format:
             **{WORD}**
@@ -42,7 +43,7 @@ const Chat = () => {
             Acronym: 
             Category:
             👍{Upvotes of word in percentage} 👎{Downvotes of word in percentage}
-            Ask user satisfaction with the response?
+            Are you satisfied with the response?
         `,
         role: "system",
       },
