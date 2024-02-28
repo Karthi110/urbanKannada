@@ -2,95 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 .bgimg {
   background-color: rgb(255, 255, 255);
   background-image: radial-gradient(
-      at 19% 14%,
-      rgb(209, 250, 229) 0,
+      at 100% 100%,
+      rgb(110, 231, 183) 0,
       transparent 50%
     ),
-    radial-gradient(at 91% 21%, rgb(153, 246, 228) 0, transparent 91%),
-    radial-gradient(at 71% 74%, rgb(220, 252, 231) 0, transparent 68%),
-    radial-gradient(at 24% 76%, rgb(167, 243, 208) 0, transparent 45%);
+    radial-gradient(at 0% 0%, rgb(253, 164, 175) 0, transparent 50%);
 }
 
 .animate-gradient {
   background-size: 300%;
-  -webkit-animation: animatedgradient 6s ease infinite alternate;
-  -moz-animation: animatedgradient 6s ease infinite alternate;
   animation: animatedgradient 6s ease infinite alternate;
 }
 
@@ -113,5 +36,5 @@
 }
 
 .text-gradient {
-  @apply transition-colors delay-75 bg-gradient-to-r  from-green-500 via-rose-400 to-indigo-500 text-transparent bg-clip-text animate-gradient;
+  @apply transition-colors delay-75 bg-gradient-to-r  from-emerald-600 via-sky-400 to-rose-600  text-transparent bg-clip-text animate-gradient;
 }

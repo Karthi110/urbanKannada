@@ -1,13 +1,9 @@
-To run run the following commands
-1.npm i
-2.Add your openai api key in env file
-3.npm run dev
+To run the project
+1.clone the repo
+2.run 'npm i' command
+3.get openai api key and put in env file...refer env.example 
+4.npm run dev
 
+About the project
 
-
-TODO
-
-0.Interactivity✅<br>
-1.User Feedback✅<br/>
-2.Ai learn from Feedback❌<br>
-3.Error handling❌<br>
+This is a fun project where AI is able to give the slang meanings of urban words all over the world.

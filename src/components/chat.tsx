@@ -80,8 +80,8 @@ const Chat = () => {
           )}
         </Button>
       </form>
-      <ScrollArea className="max-w-xl h-72 rounded-xl mb-2 py-1">
-        <div className="divide-y flex flex-col-reverse bg-green-50 text-slate-500 px-4 rounded-xl">
+      <ScrollArea className="max-w-xl h-[300px] rounded-lg mb-2 py-1">
+        <div className="divide-y flex flex-col-reverse bg-gray-50/50 text-slate-500 px-4 rounded-xl shadow-inner shadow-gray-200">
           {messages
             .filter((m) => m.role !== "system")
             .map((m, index) => (
