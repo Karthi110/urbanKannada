@@ -1,9 +1,9 @@
 # To run the project
 
-### > 1.Clone the repo <br>
-### > 2.Run `npm i` <br>
-### > 3.Get openai api key and put in env file...refer env.example <br>
-### > 4.`npm run dev` <br>
+>### 1. Clone the repo <br>
+>### 2. Run `npm i` <br>
+>### 3. Get openai api key and put in env file...refer env.example <br>
+>### 4. `npm run dev` <br>
 
 ## About the project
 
